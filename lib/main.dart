@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/core/theme/app_theme.dart';
+import 'package:flutter_clean_architecture/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_clean_architecture/features/auth/presentation/pages/signup_page.dart';
+import 'package:flutter_clean_architecture/init_dependencies.dart';
 
-void main() {
-  runApp(const MainApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await initDependencies();
+
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (context) => serviceLocator<AuthBloc>(),
+      )
+    ],
+    child: const MainApp(),
+  ));
 }
 
 class MainApp extends StatelessWidget {

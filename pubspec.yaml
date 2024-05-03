@@ -1,14 +1,18 @@
 name: flutter_clean_architecture
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.2.2 <4.0.0'
+  sdk: ">=3.2.2 <4.0.0"
 
 dependencies:
+  either_dart: ^1.0.0
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.5
+  get_it: ^7.6.7
+  supabase_flutter: ^2.5.2
 
 dev_dependencies:
   flutter_test:
